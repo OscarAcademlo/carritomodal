@@ -63,7 +63,7 @@ if (carrito.hasOwnProperty(producto.id)){
 }
 carrito[producto.id] = {... producto}
 pintarCarrito()
-console.log(carrito);
+cantCart(producto.cantidad);
 }
 
 const pintarCarrito = ()=>{
@@ -106,7 +106,7 @@ const pintarFooter = ()=>{
     
     templateFooter.querySelectorAll('td')[0].textContent = nCantidad
     templateFooter.querySelector('span').textContent = nPrecio
-    
+    console.log(nCantidad);
     const clone = templateFooter.cloneNode(true)
     footer.appendChild(clone)
     footer.append(fragment)
@@ -140,6 +140,12 @@ if (e.target.classList.contains('btn-danger')){
 
 }
 e.stopPropagation()
+}
+
+const cantCart = (cantidad) =>{
+    let item =document.getElementById('cart')
+    item.innerText= cantidad
+
 }
 
  
